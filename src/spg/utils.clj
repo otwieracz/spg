@@ -1,10 +1,10 @@
-(ns spg.utils)
+(ns spg.utils
+  (:require [clojure.string :as string]))
 
 (defn windows?
   []
-  (zero? (.indexOf
-          (.. System getProperties (get "os.name"))
-          "Windows")))
+  (string/includes? (string/lower-case (.. System getProperties (get "os.name")))
+                    "windows"))
 
 (defn newl
   "Handle Windows `newline` \\n vs \\r\\n"
