@@ -12,3 +12,10 @@
   (if (windows?)
     "\r\n"
     "\n"))
+
+(defn fs-sep
+  "Handle Windows/Unix filesystem path separator "
+  []
+  (if (windows?)
+    "\\"
+    "/"))
